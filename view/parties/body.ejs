@@ -1,0 +1,29 @@
+
+<div class = "jumbotron text-center">
+    <h1>Search Your Movies</h1>
+    <form action="/" method="GET">
+    <input type="text" placeholder="Your Movie" name="movie" size="35">
+    <input type="submit">
+</form>
+</div>
+<div class = "row">
+    <% if (datas["Search"].length == null ) { datas["Search"].length = 1;} %>
+ <% for(var i=0;i<datas["Search"].length;i++){ %>
+    <div class="col-md-3 col-sm-6">
+        <div class="img-thumbnail">
+   <% if(datas["Search"][i]["Poster"] != "N/A" ) { %> 
+   <img  src= " 
+   <%= datas["Search"][i]["Poster"] %> 
+  " >  
+  <div class="caption">
+        <%= datas["Search"][i]["Title"] %>
+        <%= datas["Search"][i]["Year"] %>
+    </div>
+   <% } else { %>
+   <img src= "images/imagenotfound.png">
+   <% } %>
+     
+   </div>
+    </div>
+<% } %>
+</div>
